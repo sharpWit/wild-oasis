@@ -24,13 +24,13 @@ export async function createUpdateCabin(newCabin, id) {
     ? newCabin.image
     : `${supabaseUrl}/storage/v1/object/public/cabin-images/${imageName}`;
 
-  // 1. CREATE / EDIT A CABIN
+  // 1. CREATE / UPDATE A CABIN
   let query = supabase.from("cabins");
 
   // A) CREATE
   if (!id) query = query.insert([{ ...newCabin, image: imagePath }]);
 
-  // B) EDIT
+  // B) UPDATE
   if (id) query = query.update({ ...newCabin, image: imagePath }).eq("id", id);
 
   const { data, error } = await query.select().single();
