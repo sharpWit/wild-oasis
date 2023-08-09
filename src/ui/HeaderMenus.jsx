@@ -11,7 +11,7 @@ const StyledHeaderMenu = styled.ul`
   gap: 0.4rem;
 `;
 
-function HeaderMenu() {
+function HeaderMenus() {
   const navigate = useNavigate();
 
   return (
@@ -31,4 +31,4 @@ function HeaderMenu() {
   );
 }
 
-export default HeaderMenu;
+export default HeaderMenus;
